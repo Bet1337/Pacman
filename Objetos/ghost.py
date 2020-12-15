@@ -13,9 +13,6 @@ def append_ghost():
     GHOST.append(purple)
 
 def draw_ghost(): 
-    GHOST.append(red)
-    GHOST.append(pink)
-    GHOST.append(purple)
     pygame.draw.rect(screen, RED, red)
     pygame.draw.rect(screen, PINK, pink)
     pygame.draw.rect(screen, PURPLE, purple)
