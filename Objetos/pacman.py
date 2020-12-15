@@ -2,7 +2,7 @@ import pygame
 from constants import *
 
 pacman = pygame.Rect(SQUARE_SIZE*8+SQUARE_SIZE//4, SQUARE_SIZE*7+SQUARE_SIZE//4, 13, 13)
-
+life = 3
 def draw_pac():
     pygame.draw.rect(screen, YELLOW, pacman)
 
@@ -21,6 +21,11 @@ def collide_ghost():
     for i in GHOST: 
         if pacman.colliderect(i):
             return True
+def die_pac():
+    global life 
+    life -= 1
+    if life == 0:
+        pygame.quit()
 
 def move_pac(key):
 
@@ -51,6 +56,7 @@ def move_pac(key):
         
         if ghost_col:
             pacman.x, pacman.y = SQUARE_SIZE*8+SQUARE_SIZE//4, SQUARE_SIZE*7+SQUARE_SIZE//4
+            die_pac()
 
         
              
